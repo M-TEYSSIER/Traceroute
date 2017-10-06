@@ -1,0 +1,2 @@
+Strict Graph G {
+node[layer=all,shape=box];
