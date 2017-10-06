@@ -1,0 +1,2 @@
+Moi -- " 10.213.255.254 " -- " Réseau avant 10.255.255.254 [*] & saut 1 " -- " 10.255.255.254 " -- " Réseau avant 194.199.227.135 [AS2200] & saut 2 " -- " 194.199.227.135 "; 
+Moi , " Réseau avant 10.255.255.254 [*] & saut 1 "  , " Réseau avant 194.199.227.135 [AS2200] & saut 2 "   [shape=ellipse,fontcolor=white];
