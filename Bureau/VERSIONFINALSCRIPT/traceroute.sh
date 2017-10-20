@@ -44,7 +44,7 @@ Hop=""
 HopPlusUn=""
 
 # La liste "listArg" contient les differentes combinaisons de protocoles et ports.
-listArg=( "-I" "-U -p 1194" "-U -p 5060" "-T -p 80" "-T -p 443" "-T -p 22" )
+listArg=( "-T -p 80" "-I" "-T -p 443" "-U -p 1194" "-U -p 5060"  "-T -p 22" )
 
 
 # Première ligne: affiche le parcours du paquet envoyer avec differents protocoles. Les adresses IP des sauts s'affichera tant que possible.
