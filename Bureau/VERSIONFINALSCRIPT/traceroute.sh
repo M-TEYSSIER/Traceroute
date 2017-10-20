@@ -67,17 +67,17 @@ for ttl in $(seq 1 30)
 				elif [ "$Hop" == "*" ] && [ "$proto" == "-I" ] && [ "$HopPlusUn" == "*" ]
 				then
 					echo -n " Inconnuedesaut$ttl" >> $NomFichier
-					echo -n " -- "'"' "Inconnue de saut $ttl" '"'" -- " >> $NomFichier
+					echo -n " -- "'"' "Inconnuedesaut$ttl" '"'" -- " >> $NomFichier
 					break
 				elif [ "$Hop" == "*" ] && [ "$proto" == "-I" ] && [ "$HopPlusUn" != "*" ]
 				then
-					echo -n " Inconnue " >> $NomFichier
-					echo -n " -- "'"' "Réseau avant $HopPlusUn & saut $ttl" '"'" -- " >> $NomFichier
+					echo -n " Inconnuedesaut$ttl" >> $NomFichier
+					echo -n " -- "'"' "Réseau avant $HopPlusUn & saut $ttl & adresse finale $IpCible" '"'" -- " >> $NomFichier
 					break
 				elif [ "$Hop" != "*" ] && [ "$Hop" != "$IpCible" ]
 				then
 					echo -n  '"'" $Hop "'"'  >> $NomFichier
-					echo -n " -- "'"' "Réseau avant $HopPlusUn & saut $ttl" '"'" -- " >> $NomFichier
+					echo -n " -- "'"' "Réseau avant $HopPlusUn & saut $ttl & adresse finale $IpCible" '"'" -- " >> $NomFichier
 					break
 				fi
 			done
@@ -95,7 +95,7 @@ for ttl in $(seq 1 30)
 				echo -n " , $(cat $NomFichier |grep $Moi | sed 's/ -- / -/g' |sed 's/;/ -/g' | cut -d "-" -f $((($ttl2*2)+1)) )" >> test
 		fi
 		done
-	echo -n " [shape=ellipse,fontcolor=white];" >> test
+	echo -n " [shape=ellipse,fontcolor=white,fixedsize=true];" >> test
 	echo -n "$(cat test | sed -e 's/ /"'$Moi'" /')" >> $NomFichier
 	echo ""	>> $NomFichier
 	echo "$(cat $NomFichier | sed 's/'[*]'/[65535]/g')" > $NomFichier
