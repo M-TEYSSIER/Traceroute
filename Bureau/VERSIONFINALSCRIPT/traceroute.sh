@@ -19,12 +19,14 @@ if [ -z $1 ]
 		exit -1
 	fi						      
 clear
-
+################################################################
+#  Permet de trouver l'adresse IP sur laquel debute le paque   #
+################################################################
 tshark -a duration:5 -Y icmp host $1 > test | ping $1 -c 3
 Moi="$(cat test| cut -c 4-| head -n 1 | cut -d " " -f 6)"
 echo $Moi
 rm test
-
+################################################################ 
 
 # La variable "IpCible" permet de definir dans cette variable la valeur indiqué dans la commande excecuté.
 IpCible=$1
